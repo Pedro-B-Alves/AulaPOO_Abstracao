@@ -7,15 +7,23 @@ namespace AulaPOO_Abstracao.classes
         //Atributos
         private DateTime data;
 
-        protected float valor;
+        public DateTime Data{
+            get{return data;}
+            set{data = value;}
+        }
+        protected float valor = 900;
+        public float Valor{
+            get{return valor;}
+            set{valor = value;}
+        }
 
         //Métodos
 
         public string Cancelar(){
-            return "";
+            return "Compra Cancelada";
         }
 
         //Obrigatório
-        public abstract string Desconto(int valor);
+        public abstract string Desconto(float valor);
     }
 }

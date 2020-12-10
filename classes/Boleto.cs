@@ -6,9 +6,17 @@ namespace AulaPOO_Abstracao.classes
     {
         private string codigoDeBarras;
 
-        public override string Desconto(int valor)
+        public override string Desconto(float valor)
         {
-            return "";
+            Console.WriteLine("Você receberá 12% de desconto");
+            valor = valor-(valor*0.12f);
+            codigoDeBarras = "123456";
+            Data = DateTime.Now;
+            Console.WriteLine($"Data registrada - {Data}");
+            Console.WriteLine($"Código de barras feito - {codigoDeBarras}");
+            return "Voce terá que pagar "+valor+" Reais.";
+            
+
         }
 
         public void Registrar(){
