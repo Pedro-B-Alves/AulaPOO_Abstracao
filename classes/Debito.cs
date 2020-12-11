@@ -11,12 +11,15 @@ namespace AulaPOO_Abstracao.classes
       protected int parcelas;
 
       public void Pagar(float valor){
-          saldo = valor - saldo;
-          if(saldo<valor){
-            Console.WriteLine($"Você ficou devendo {saldo}");
+          if(valor<=saldo){
+            saldo = saldo - valor;
+            Console.WriteLine($"Data de emissão - {Data}");
+            Console.WriteLine($"Data de Vencimento - {Data.AddDays(10)}");
+            Console.WriteLine("Você ficou com o saldo de "+saldo+" Reais"); 
             
           }else{
-            Console.WriteLine("Você ficou com o saldo de "+saldo+" Reais"); 
+            Console.WriteLine("Você não tem dinheiro suficiente para concluir a compra");
+            
           }
           
       } 

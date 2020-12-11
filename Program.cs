@@ -15,7 +15,6 @@ namespace AulaPOO_Abstracao
             Console.WriteLine("Você tem que pagar as suas compras na loja");
             Console.WriteLine("Quanto deu o total das compras?");
             boleto.Valor = float.Parse(Console.ReadLine());
-            Console.WriteLine("Que deram um total de 900 Reais.");
             Console.WriteLine("Deseja cancelar a compra s/n");
             string cancelando = Console.ReadLine();
             if (cancelando == "s")
@@ -68,8 +67,10 @@ namespace AulaPOO_Abstracao
                             visa.AumentarLimite(300);
                         }
                         credito.Pagar(boleto.Valor);
-                        Console.WriteLine("Fazendo o primeiro pagamento com 900 Reais.");
-                        visa.Pagar(boleto.Valor);
+                        if (boleto.Valor>credito.Limite){
+                            return;
+                        }
+                        visa.Pagar(900);
                         opcao5 = false;
                         break;
                     case "d":
