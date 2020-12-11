@@ -13,6 +13,8 @@ namespace AulaPOO_Abstracao
             Credito credito = new Credito();
             Debito debito = new Debito();
             Console.WriteLine("Você tem que pagar as suas compras na loja");
+            Console.WriteLine("Quanto deu o total das compras?");
+            boleto.Valor = float.Parse(Console.ReadLine());
             Console.WriteLine("Que deram um total de 900 Reais.");
             Console.WriteLine("Deseja cancelar a compra s/n");
             string cancelando = Console.ReadLine();
@@ -38,7 +40,7 @@ namespace AulaPOO_Abstracao
                         {
                             boleto.Registrar();
                         }
-                        boleto.Desconto(boleto.Valor);
+                        Console.WriteLine(boleto.Desconto(boleto.Valor));
                         opcao = false;
                         return;
                     case "c":
@@ -65,9 +67,9 @@ namespace AulaPOO_Abstracao
                             Console.WriteLine("Você aumentou o seu limite em + 300");
                             visa.AumentarLimite(300);
                         }
-                        credito.Pagar(900);
+                        credito.Pagar(boleto.Valor);
                         Console.WriteLine("Fazendo o primeiro pagamento com 900 Reais.");
-                        visa.Pagar(900);
+                        visa.Pagar(boleto.Valor);
                         opcao5 = false;
                         break;
                     case "d":
@@ -79,7 +81,7 @@ namespace AulaPOO_Abstracao
                         {
                             Console.WriteLine("O seu saldo é de "+debito.Saldo+" Reais."); 
                         }
-                        debito.Pagar(900);
+                        debito.Pagar(boleto.Valor);
                         opcao5 = false;
                         break;
                     default:

@@ -11,7 +11,7 @@ namespace AulaPOO_Abstracao.classes
             get{return data;}
             set{data = value;}
         }
-        protected float valor = 900;
+        protected float valor;
         public float Valor{
             get{return valor;}
             set{valor = value;}
