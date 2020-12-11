@@ -11,7 +11,7 @@ namespace AulaPOO_Abstracao.classes
             set{limite = value;}
         }
 
-        public void Pagar(float valor){
+        public virtual void Pagar(float valor){
             bool opcao = true;
             do
             {

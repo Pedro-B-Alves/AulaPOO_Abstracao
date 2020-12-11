@@ -8,7 +8,7 @@ namespace AulaPOO_Abstracao.classes
             Limite = Limite + aumentarLimite;
             return Limite;
         }
-        public new void Pagar(float valorPagar){
+        public override void Pagar(float valorPagar){
             valor = valor - valorPagar;
             if (valor <= 0)
             {

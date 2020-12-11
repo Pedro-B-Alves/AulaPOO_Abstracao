@@ -12,8 +12,6 @@ namespace AulaPOO_Abstracao
             CartaoCredito visa = new CartaoCredito();
             Credito credito = new Credito();
             Debito debito = new Debito();
-	        visa.AumentarLimite(300);
-	        visa.Pagar(900);
             Console.WriteLine("Você tem que pagar as suas compras na loja");
             Console.WriteLine("Que deram um total de 900 Reais.");
             Console.WriteLine("Deseja cancelar a compra s/n");
@@ -25,10 +23,11 @@ namespace AulaPOO_Abstracao
             }
             
             bool opcao = true;
+            bool opcao5 = true;
             do
             {
 
-                Console.WriteLine("Deseja pagar de que maneira [b]-boleto [c]-Cartão de Crédito [d]-Cartão de Débito");
+                Console.WriteLine("Deseja pagar de que maneira [b]-boleto [c]-Cartão");
                 string opcao2 = Console.ReadLine();
                 switch (opcao2)
                 {
@@ -41,7 +40,21 @@ namespace AulaPOO_Abstracao
                         }
                         boleto.Desconto(boleto.Valor);
                         opcao = false;
+                        return;
+                    case "c":
+                        opcao = false;
                         break;
+                    default:
+                        Console.WriteLine("Digite uma opção valida");
+                        break;
+                }
+            } while (opcao != false);
+            do
+            {
+                Console.WriteLine("Deseja pagar de que maneira [c]-Cartão de Crédito [d]-Cartão de Débito");
+                string opcao4 = Console.ReadLine();
+                switch (opcao4)
+                {
                     case "c":
                         cartao.InformacaoCartao();
                         Console.WriteLine(cartao.SalvarCartao());
@@ -55,7 +68,7 @@ namespace AulaPOO_Abstracao
                         credito.Pagar(900);
                         Console.WriteLine("Fazendo o primeiro pagamento com 900 Reais.");
                         visa.Pagar(900);
-                        opcao = false;
+                        opcao5 = false;
                         break;
                     case "d":
                         Console.WriteLine(cartao.InformacaoCartao());
@@ -67,16 +80,14 @@ namespace AulaPOO_Abstracao
                             Console.WriteLine("O seu saldo é de "+debito.Saldo+" Reais."); 
                         }
                         debito.Pagar(900);
-                        opcao = false;
+                        opcao5 = false;
                         break;
                     default:
                         Console.WriteLine("Digite uma opção valida");
                         break;
                 }
                 
-            } while (opcao != false);
-            
-            
+            } while (opcao5 != false);
         }
     }
 }
