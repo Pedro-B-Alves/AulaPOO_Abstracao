@@ -2,7 +2,7 @@ using System;
 
 namespace AulaPOO_Abstracao.classes
 {
-    public class Cartao : Pagamento
+    public abstract class Cartao : Pagamento
     {
         public string bandeira;
         public string numero;

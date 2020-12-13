@@ -14,9 +14,7 @@ namespace AulaPOO_Abstracao.classes
           if(valor<=saldo){
             saldo = saldo - valor;
             Console.WriteLine($"Data de emissão - {Data}");
-            Console.WriteLine($"Data de Vencimento - {Data.AddDays(10)}");
-            Console.WriteLine("Você ficou com o saldo de "+saldo+" Reais"); 
-            
+            Console.WriteLine("Compra realizada com sucesso");
           }else{
             Console.WriteLine("Você não tem dinheiro suficiente para concluir a compra");
             

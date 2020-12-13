@@ -8,7 +8,6 @@ namespace AulaPOO_Abstracao
         static void Main(string[] args)
         {
             Boleto boleto = new Boleto();
-            Cartao cartao = new Cartao();
             CartaoCredito visa = new CartaoCredito();
             Credito credito = new Credito();
             Debito debito = new Debito();
@@ -39,6 +38,7 @@ namespace AulaPOO_Abstracao
                         {
                             boleto.Registrar();
                         }
+                        boleto.Data = DateTime.Now;
                         Console.WriteLine(boleto.Desconto(boleto.Valor));
                         opcao = false;
                         return;
@@ -57,8 +57,8 @@ namespace AulaPOO_Abstracao
                 switch (opcao4)
                 {
                     case "c":
-                        cartao.InformacaoCartao();
-                        Console.WriteLine(cartao.SalvarCartao());
+                        credito.InformacaoCartao();
+                        Console.WriteLine(credito.SalvarCartao());
                         Console.WriteLine("Deseja aumentar o limite s/n");
                         string aumentarLimite = Console.ReadLine();
                         if (aumentarLimite == "s")
@@ -70,18 +70,19 @@ namespace AulaPOO_Abstracao
                         if (boleto.Valor>credito.Limite){
                             return;
                         }
-                        visa.Pagar(900);
+                        visa.DataCompra();
                         opcao5 = false;
                         break;
                     case "d":
-                        Console.WriteLine(cartao.InformacaoCartao());
-                        Console.WriteLine(cartao.SalvarCartao());
+                        Console.WriteLine(debito.InformacaoCartao());
+                        Console.WriteLine(debito.SalvarCartao());
                         Console.WriteLine("Deseja ver o seu saldo s/n");
                         string verSaldo = Console.ReadLine();
                         if (verSaldo == "s")
                         {
                             Console.WriteLine("O seu saldo é de "+debito.Saldo+" Reais."); 
                         }
+                        debito.Data = DateTime.Now;
                         debito.Pagar(boleto.Valor);
                         opcao5 = false;
                         break;

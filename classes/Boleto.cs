@@ -11,7 +11,6 @@ namespace AulaPOO_Abstracao.classes
             Console.WriteLine("Você receberá 12% de desconto");
             valor = valor-(valor*0.12f);
             codigoDeBarras = "123456.6543567.135656.96875453";
-            Data = DateTime.Now;
             Console.WriteLine($"Data de emissão - {Data}");
             Console.WriteLine($"Data de Vencimento - {Data.AddDays(10)}");
             Console.WriteLine($"Código de barras feito - {codigoDeBarras}");
